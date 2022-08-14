@@ -1,0 +1,25 @@
+package com.example.testapplication
+
+import com.example.testapplication.models.Movie
+import com.example.testapplication.models.ValidationUtil
+import org.junit.Assert
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
+
+@RunWith(JUnit4::class)
+class ValidationUtilTest {
+
+    @Test
+    fun validateMovieTest() {
+        val movie = Movie("test","testUrl","main")
+        Assert.assertEquals(true, ValidationUtil.validateMovie(movie))
+    }
+
+    @Test
+    fun validateMovieEmptyTest() {
+        val movie = Movie("","testUrl","main")
+        Assert.assertEquals(false, ValidationUtil.validateMovie(movie))
+    }
+
+}
